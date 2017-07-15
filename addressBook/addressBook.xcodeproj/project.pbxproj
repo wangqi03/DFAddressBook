@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		60F617F31F1A31BD00BDB830 /* DFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F617F21F1A31BD00BDB830 /* DFPerson.m */; };
+		60F617F31F1A31BD00BDB830 /* DFContactPersonEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F617F21F1A31BD00BDB830 /* DFContactPersonEntity.m */; };
+		60F617F61F1A370C00BDB830 /* DFAddressBookManager+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F617F51F1A370C00BDB830 /* DFAddressBookManager+Convenience.m */; };
 		AA87F0261F1A1EE4009A6730 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F0251F1A1EE4009A6730 /* main.m */; };
 		AA87F0291F1A1EE4009A6730 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F0281F1A1EE4009A6730 /* AppDelegate.m */; };
 		AA87F02C1F1A1EE4009A6730 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F02B1F1A1EE4009A6730 /* ViewController.m */; };
@@ -29,8 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		60F617F11F1A31BC00BDB830 /* DFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPerson.h; sourceTree = "<group>"; };
-		60F617F21F1A31BD00BDB830 /* DFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPerson.m; sourceTree = "<group>"; };
+		60F617F11F1A31BC00BDB830 /* DFContactPersonEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFContactPersonEntity.h; sourceTree = "<group>"; };
+		60F617F21F1A31BD00BDB830 /* DFContactPersonEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFContactPersonEntity.m; sourceTree = "<group>"; };
+		60F617F41F1A370C00BDB830 /* DFAddressBookManager+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DFAddressBookManager+Convenience.h"; sourceTree = "<group>"; };
+		60F617F51F1A370C00BDB830 /* DFAddressBookManager+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DFAddressBookManager+Convenience.m"; sourceTree = "<group>"; };
 		AA87F0211F1A1EE4009A6730 /* addressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = addressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA87F0251F1A1EE4009A6730 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA87F0271F1A1EE4009A6730 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,8 +126,10 @@
 			children = (
 				AA87F04A1F1A1F1A009A6730 /* DFAddressBookManager.h */,
 				AA87F04B1F1A1F1A009A6730 /* DFAddressBookManager.m */,
-				60F617F11F1A31BC00BDB830 /* DFPerson.h */,
-				60F617F21F1A31BD00BDB830 /* DFPerson.m */,
+				60F617F11F1A31BC00BDB830 /* DFContactPersonEntity.h */,
+				60F617F21F1A31BD00BDB830 /* DFContactPersonEntity.m */,
+				60F617F41F1A370C00BDB830 /* DFAddressBookManager+Convenience.h */,
+				60F617F51F1A370C00BDB830 /* DFAddressBookManager+Convenience.m */,
 			);
 			path = DFAddressBook;
 			sourceTree = "<group>";
@@ -231,9 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60F617F31F1A31BD00BDB830 /* DFPerson.m in Sources */,
+				60F617F31F1A31BD00BDB830 /* DFContactPersonEntity.m in Sources */,
 				AA87F02C1F1A1EE4009A6730 /* ViewController.m in Sources */,
 				AA87F0291F1A1EE4009A6730 /* AppDelegate.m in Sources */,
+				60F617F61F1A370C00BDB830 /* DFAddressBookManager+Convenience.m in Sources */,
 				AA87F0261F1A1EE4009A6730 /* main.m in Sources */,
 				AA87F04C1F1A1F1A009A6730 /* DFAddressBookManager.m in Sources */,
 			);
