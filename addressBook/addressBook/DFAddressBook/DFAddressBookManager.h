@@ -12,16 +12,30 @@
 #import <AddressBook/AddressBook.h>
 #import <Contacts/Contacts.h>
 
+// MARK: - blocks & enums
 //only one of them will be assigned
-typedef void (^DFAddressBookEnumBlock)(__nullable ABRecordRef person,  CNContact* _Nullable  contact);
+typedef void (^DFAddressBookEnumBlock)(CNContact* _Nullable  contact, __nullable ABRecordRef person);
+
+//result block
 typedef void (^DFAddressBookResultBlock)(BOOL accessGranted);
 
-//the class itself
+//auth status
+typedef enum {
+    DFAddressBookAuthStatusNotDetermined,
+    DFAddressBookAuthStatusRestricted,
+    DFAddressBookAuthStatusDenied,
+    DFAddressBookAuthStatusAuthorized
+} DFAddressBookAuthStatus;
+
+// MARK: - the class itself
 @interface DFAddressBookManager : NSObject
 
-+ (instancetype)manager;
+// MARK: instance
++ (instancetype _Nonnull )manager;
 
-- (void)requestDeviceAddressBookAuth;
-- (void)requestDeviceAddressBookWithEnumerationBlock:(DFAddressBookEnumBlock)enumeration andResultBlock:(DFAddressBookResultBlock)result;
+// MARK: getters
+- (DFAddressBookAuthStatus)authStatus;
+- (void)requestDeviceAddressBookWithEnumerationBlock:(DFAddressBookEnumBlock _Nullable )enumeration andResultBlock:(DFAddressBookResultBlock _Nullable )result;
+
 
 @end

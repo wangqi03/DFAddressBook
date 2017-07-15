@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DFAddressBookManager.h"
 
 @interface ViewController ()
 
@@ -14,15 +15,12 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)clickedGet:(id)sender {
+    [[DFAddressBookManager manager] requestDeviceAddressBookWithEnumerationBlock:^(CNContact * _Nullable contact, ABRecordRef  _Nullable person) {
+        
+    } andResultBlock:^(BOOL accessGranted) {
+        
+    }];
 }
 
 

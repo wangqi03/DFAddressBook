@@ -8,6 +8,12 @@
 
 #import "DFAddressBookManager.h"
 
+@interface DFAddressBookManager()
+
+@property (nonatomic,strong) CNContactStore* store;
+
+@end
+
 @implementation DFAddressBookManager
 
 #pragma mark - singleton
@@ -20,12 +26,36 @@
     return sharedInstance;
 }
 
-- (void)requestDeviceAddressBookAuth {
-    // tbc...
+- (DFAddressBookAuthStatus)authStatus {
+    if ([self lessThanIOS9]) {
+        ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
+        switch (status) {
+            case kABAuthorizationStatusDenied:
+                return DFAddressBookAuthStatusDenied;
+            case kABAuthorizationStatusAuthorized:
+                return DFAddressBookAuthStatusAuthorized;
+            case kABAuthorizationStatusRestricted:
+                return DFAddressBookAuthStatusRestricted;
+            default:
+                return DFAddressBookAuthStatusNotDetermined;
+        }
+    } else {
+        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
+        switch (status) {
+            case CNAuthorizationStatusDenied:
+                return DFAddressBookAuthStatusDenied;
+            case CNAuthorizationStatusAuthorized:
+                return DFAddressBookAuthStatusAuthorized;
+            case CNAuthorizationStatusRestricted:
+                return DFAddressBookAuthStatusRestricted;
+            default:
+                return DFAddressBookAuthStatusNotDetermined;
+        }
+    }
 }
 
 - (void)requestDeviceAddressBookWithEnumerationBlock:(DFAddressBookEnumBlock)enumeration andResultBlock:(DFAddressBookResultBlock)result {
-    if ([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] == NSOrderedAscending) {
+    if ([self lessThanIOS9]) {
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
         ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
             if (granted) {
@@ -36,7 +66,7 @@
                     
                     ABRecordRef person = CFArrayGetValueAtIndex(ref, i);
                     
-                    enumeration(person,nil);
+                    enumeration(nil,person);
                 }
                 
                 CFRelease(ref);
@@ -48,15 +78,14 @@
             
         });
     } else {
-        CNContactStore* store=[[CNContactStore alloc] init];
-        [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
             if (granted) {
                 
                 id temp=[CNContactFormatter descriptorForRequiredKeysForStyle:CNContactFormatterStyleFullName];
                 CNContactFetchRequest* request=[[CNContactFetchRequest alloc] initWithKeysToFetch:@[temp,CNContactPhoneNumbersKey]];
-                [store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+                [self.store enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
                     
-                    enumeration(nil,contact);
+                    enumeration(contact,nil);
                 }];
                 
                 result(true);
@@ -65,6 +94,18 @@
             }
         }];
     }
+}
+
+- (CNContactStore*)store {
+    if (!_store) {
+        _store =[[CNContactStore alloc] init];
+    }
+    
+    return _store;
+}
+
+- (BOOL)lessThanIOS9 {
+    return [[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] == NSOrderedAscending;
 }
 
 @end

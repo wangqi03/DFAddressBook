@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60F617F31F1A31BD00BDB830 /* DFPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F617F21F1A31BD00BDB830 /* DFPerson.m */; };
 		AA87F0261F1A1EE4009A6730 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F0251F1A1EE4009A6730 /* main.m */; };
 		AA87F0291F1A1EE4009A6730 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F0281F1A1EE4009A6730 /* AppDelegate.m */; };
 		AA87F02C1F1A1EE4009A6730 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA87F02B1F1A1EE4009A6730 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60F617F11F1A31BC00BDB830 /* DFPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPerson.h; sourceTree = "<group>"; };
+		60F617F21F1A31BD00BDB830 /* DFPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPerson.m; sourceTree = "<group>"; };
 		AA87F0211F1A1EE4009A6730 /* addressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = addressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA87F0251F1A1EE4009A6730 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA87F0271F1A1EE4009A6730 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 			children = (
 				AA87F04A1F1A1F1A009A6730 /* DFAddressBookManager.h */,
 				AA87F04B1F1A1F1A009A6730 /* DFAddressBookManager.m */,
+				60F617F11F1A31BC00BDB830 /* DFPerson.h */,
+				60F617F21F1A31BD00BDB830 /* DFPerson.m */,
 			);
 			path = DFAddressBook;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60F617F31F1A31BD00BDB830 /* DFPerson.m in Sources */,
 				AA87F02C1F1A1EE4009A6730 /* ViewController.m in Sources */,
 				AA87F0291F1A1EE4009A6730 /* AppDelegate.m in Sources */,
 				AA87F0261F1A1EE4009A6730 /* main.m in Sources */,
@@ -428,6 +434,7 @@
 				AA87F0451F1A1EE4009A6730 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA87F0461F1A1EE4009A6730 /* Build configuration list for PBXNativeTarget "addressBookTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +443,7 @@
 				AA87F0481F1A1EE4009A6730 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
