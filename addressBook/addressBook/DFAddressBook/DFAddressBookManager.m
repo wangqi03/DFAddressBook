@@ -20,6 +20,10 @@
     return sharedInstance;
 }
 
+- (void)requestDeviceAddressBookAuth {
+    // tbc...
+}
+
 - (void)requestDeviceAddressBookWithEnumerationBlock:(DFAddressBookEnumBlock)enumeration andResultBlock:(DFAddressBookResultBlock)result {
     if ([[[UIDevice currentDevice] systemVersion] compare:@"9.0" options:NSNumericSearch] == NSOrderedAscending) {
         ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);

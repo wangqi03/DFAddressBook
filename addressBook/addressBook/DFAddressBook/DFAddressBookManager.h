@@ -21,6 +21,7 @@ typedef void (^DFAddressBookResultBlock)(BOOL accessGranted);
 
 + (instancetype)manager;
 
+- (void)requestDeviceAddressBookAuth;
 - (void)requestDeviceAddressBookWithEnumerationBlock:(DFAddressBookEnumBlock)enumeration andResultBlock:(DFAddressBookResultBlock)result;
 
 @end
