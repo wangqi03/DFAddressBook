@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DFAddressBookManager.h"
+#import "DFAddressBookManager+Convenience.h"
 
 @interface ViewController ()
 
@@ -16,11 +16,16 @@
 @implementation ViewController
 
 - (IBAction)clickedGet:(id)sender {
+    //*
+    [DFAddressBookManager getAddressBookListInDFContactPersonEntityFormat:^(BOOL granted, NSArray<DFContactPersonEntity *> *list) {
+        
+    }];
+    /*/
     [[DFAddressBookManager manager] requestDeviceAddressBookWithEnumerationBlock:^(CNContact * _Nullable contact, ABRecordRef  _Nullable person) {
         
     } andResultBlock:^(BOOL accessGranted) {
         
-    }];
+    }];//*/
 }
 
 
